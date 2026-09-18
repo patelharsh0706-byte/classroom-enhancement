@@ -1,0 +1,11 @@
+funasr>=1.1.0
+torch>=2.1.0
+torchaudio>=2.1.0
+speechbrain>=1.0.0
+anthropic>=0.40.0
+numpy>=1.24.0
+soundfile>=0.12.0
+pyannote.audio==3.1.1
+matplotlib>=3.9.0
+openai>=2.0.0
+python-dotenv>=1.0.0

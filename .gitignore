@@ -1,0 +1,37 @@
+# ── Personal data — never commit ───────────────────────────────────────────
+# Student voice recordings are biometric data (PDPA). Enrollment clips are
+# named with real student IDs; lecture audio contains the whole class.
+audio/
+
+# Pipeline outputs: voiceprint embeddings, transcripts, per-student scores,
+# ground-truth labels. All of it is identifiable.
+data/
+
+# Cached per-window attribution dumps (transcript text + names).
+scripts/_whospoke_*.json
+
+# The live roster/config. Ship config.example.json instead.
+config.json
+
+# ── Model weights (auto-downloaded, ~900 MB) ───────────────────────────────
+models/
+
+# ── Secrets ────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python ─────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ── Node / Next.js ─────────────────────────────────────────────────────────
+dashboard/node_modules/
+dashboard/.next/
+dashboard/out/
+dashboard/tsconfig.tsbuildinfo
+
+# ── OS ─────────────────────────────────────────────────────────────────────
+.DS_Store

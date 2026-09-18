@@ -1,0 +1,9 @@
+# Audio here is derived from student enrollment recordings — biometric data.
+# Consistent with the project-wide gitignore on data/ and audio/.
+audio_aug/
+noise_bank/
+logs/
+
+# Speaker embeddings and per-student score dumps are derived from student voice
+# data — biometric templates, not just numbers. Kept local like data/.
+results/

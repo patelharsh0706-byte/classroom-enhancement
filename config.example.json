@@ -1,0 +1,49 @@
+{
+  "match_threshold": 0.7,
+  "professor_label": "Prof",
+  "review_policy": {
+    "accept_sim": 0.45,
+    "review_sim_floor": 0.2,
+    "accept_z": 3.0,
+    "audit_rate": 0.1,
+    "top_n_candidates": 5,
+    "_comment": "Set from 8 verified decisions (2026-08-31): every CORRECT match fell in sim 0.225-0.831 / z 2.20-8.56; the one unenrolled speaker scored 0.143 / z 1.97. match_threshold (0.7) still decides the assigned NAME; these values only decide which clusters ask a human. accept_z rests on a single negative example - it ranks review priority, it does not decide identity."
+  },
+  "confusables": {
+    "min_sim": 0.35,
+    "percentile": 95
+  },
+  "learning": {
+    "min_speech_seconds": 8,
+    "min_speech_seconds_new_speaker": 15,
+    "max_learned_clips_per_person": 5,
+    "min_cluster_purity": 0.5
+  },
+  "diarize_chunk_seconds": 300,
+  "diarize_batch_size": 8,
+  "roster": [
+    "Alice",
+    "Bob",
+    "Charlie",
+    "Dana",
+    "Eli",
+    "Farah",
+    "Gio",
+    "Hana"
+  ],
+  "quality_weights": {
+    "synthesizing": 3,
+    "answering": 2,
+    "clarifying": 2,
+    "off-topic": 0,
+    "acknowledgement": 0
+  },
+  "anti_gaming": {
+    "max_turns_per_window": 5,
+    "window_seconds": 600,
+    "overflow_multiplier": 0.5,
+    "consecutive_same_quality_discount": 0.5
+  },
+  "teams": {},
+  "classify_model": "gpt-4o-mini"
+}
