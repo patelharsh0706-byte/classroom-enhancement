@@ -11,6 +11,40 @@ the pipeline; it is the measurement log in
 which documents a threshold that was confidently wrong and the ground truth that
 caught it.
 
+## What it looks like
+
+**Professor view.** Who spoke, how much, and what kind of contribution it was,
+against the lecture audio itself.
+
+![Professor dashboard: participation counts, quality distribution across synthesizing / answering / clarifying / off-topic / acknowledgement, a student-vs-professor speaking timeline over the lecture waveform, a leaderboard, and the transcript split by student and professor turns](docs/professor-dashboard.png)
+
+Three things in this view carry the design:
+
+- **"Unknown (matching gap)" is a headline number, labelled as an honesty metric.**
+  The share of turns the system could not attribute is shown as prominently as the
+  ones it could. When that number rises, the leaderboard below it is less
+  trustworthy, and the professor should see both at once.
+- **The timeline is the evidence.** Blue is student speech, orange is professor.
+  Every row in the transcript and the leaderboard points back to a span on that
+  bar, and clicking one plays the audio, so an attribution can be checked by ear
+  in seconds.
+- **"Learn from verified speakers" is a button, not a background job.** Confirmed
+  clusters are room-mic recordings of a known voice, which is exactly the data the
+  phone-clip enrollments lack. Folding them in is a deliberate, human-triggered
+  action with a dry run, never automatic. See `scripts/apply_learning.py`.
+
+**Student view.** The same lecture from one student's side.
+
+![Student dashboard: a student's own turns, class rank, speaking time versus average, their contributions labelled by quality, a topic mix donut, the discussion timeline filtered to their own activity, and the transcript with their turns highlighted](docs/student-dashboard.png)
+
+A student sees their own turns, where they fall in the timeline, what kind of
+contribution each was, and one concrete suggestion. The leaderboard is visible but
+not the point; the framing is "you asked a clarifying question, here is what to
+try next time," not a score to chase. The anti-gaming rules in `config.json` (a cap
+on scored turns per window, a discount on repeated same-quality turns) exist
+because a leaderboard invites the wrong behaviour the moment it becomes the
+headline.
+
 ---
 
 ## The problem
